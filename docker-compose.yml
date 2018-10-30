@@ -32,6 +32,7 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: root
     volumes:
       - mongo36-data:/data/db
+      - mongo36-configdb-data:/data/configdb
     container_name: mongo36
  
   redis40:
@@ -46,4 +47,5 @@ volumes:
   mysql57-data:
   mysql80-data:
   mongo36-data:
+  mongo36-configdb-data:
   redis40-data:
