@@ -1,0 +1,49 @@
+version: '3.6'
+services:
+  mysql57:
+    image: mysql:5.7
+    ports:
+      - "16000:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: root
+    volumes:
+      - mysql57-data:/var/lib/mysql
+    container_name: mysql57
+
+  mysql80:
+    image: mysql:8.0
+    ports:
+      - "16001:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: root
+    volumes:
+      - mysql80-data:/var/lib/mysql
+    container_name: mysql80
+
+  mongo36:
+    image: mongo:3.6
+    ports:
+      - "16002:27017"
+      - "16003:8081"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - mongo36-data:/data/db
+    container_name: mongo36
+ 
+  redis40:
+    image: redis:4.0
+    ports:
+      - "16004:6379"
+    volumes:
+      - redis40-data:/data
+    container_name: redis40
+
+volumes:
+  mysql57-data:
+  mysql80-data:
+  mongo36-data:
+  redis40-data:
